@@ -36,14 +36,14 @@ public class BootDisplay {
 
     static void AskLogin(){
         System.out.println("Enter to continue.........");
-        Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        if(input.isEmpty()){
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-            new LoginScreen();
+        try (Scanner sc = new Scanner(System.in)) {
+            String input = sc.nextLine();
+            if(input.isEmpty()){
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+                new LoginScreen();
+            }
         }
-
     }
 
     public BootDisplay(){
